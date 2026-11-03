@@ -14,6 +14,26 @@ SOLARIS is a 3D and AR Solar System explorer built with **Expo (SDK 58)**, **Rea
 | **Discover** | Fact of the day plus a fact feed. Planet comparisons across 8 metrics with animated charts. A true-scale size lineup. A "your weight on other worlds" calculator. A randomized 8-question quiz with explanations and scoring. |
 | **Polish** | Cinematic loading screen with texture progress, frosted-glass UI, Space Grotesk + Inter typography, haptics, safe-area aware and mobile-first. |
 
+## Open it instantly (no computer needed)
+
+SOLARIS is published with EAS Update (project `@snehaa006/solaris`, channel `production`, runtime `exposdk:58.0.0`). Anyone with **Expo Go** (SDK 58) can open it:
+
+- **iPhone**: scan this QR code with the Camera app. **Android**: scan it from inside Expo Go.
+
+  <img src="docs/expo-go-qr.png" width="220" alt="QR code that opens SOLARIS in Expo Go" />
+
+- Or paste this link into Expo Go, or open it on a phone that has Expo Go installed:
+
+  ```
+  exp://u.expo.dev/cab71127-7e87-4755-aff6-2b5cd14c683c?runtime-version=exposdk%3A58.0.0&channel-name=production
+  ```
+
+This link always serves the latest update on the `production` channel. To ship a new version after changing the code, run:
+
+```bash
+npx eas-cli@latest update --branch production --message "describe the change"
+```
+
 ## Run it on your iPhone (Expo Go)
 
 1. Install **Expo Go** from the App Store on the iPhone. It must be a version that supports **SDK 58**; the current App Store build does.

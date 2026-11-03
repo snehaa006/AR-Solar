@@ -47,6 +47,18 @@
           "motionPermission": "SOLARIS uses motion sensors so the AR Solar System stays anchored as you move your phone."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "cab71127-7e87-4755-aff6-2b5cd14c683c"
+      }
+    },
+    "owner": "snehaa006",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/cab71127-7e87-4755-aff6-2b5cd14c683c"
+    }
   }
 }
