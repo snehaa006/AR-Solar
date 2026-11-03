@@ -22,27 +22,20 @@ SOLARIS is a 3D and AR Solar System explorer built with **Expo (SDK 58)**, **Rea
 
 It opens in Safari or Chrome on any phone, tablet or computer. It includes the 3D explorer, Discover and AR mode, which uses the camera and gyroscope in iPhone Safari. Tap **Start AR** and allow camera and motion access. Hosted on Vercel and built from this repo with `vercel.json`. Tip: in Safari use *Share → Add to Home Screen* to get an app-like icon.
 
-### Expo Go (members of the Expo account only)
+### Expo Go (anyone, no Expo account needed)
 
-Expo Go only opens EAS Update projects for people signed in to an Expo account that is a member of the owner account (`snehaa006`). To give someone access, invite them on expo.dev (*Account → Members*). They then sign in to Expo Go with that account.
+<img src="docs/expo-go-qr.png" width="220" alt="QR code that opens SOLARIS in Expo Go" />
 
-SOLARIS is published with EAS Update (project `@snehaa006/solaris`, channel `production`, runtime `exposdk:58.0.0`). Members can open it in **Expo Go** (SDK 58):
-
-- Signed-in members: on **iPhone**, scan this QR code with the Camera app; on **Android**, scan it from inside Expo Go.
-
-  <img src="docs/expo-go-qr.png" width="220" alt="QR code that opens SOLARIS in Expo Go" />
-
-- Or paste this link into Expo Go, or open it on a phone that has Expo Go installed:
-
-  ```
-  exp://u.expo.dev/cab71127-7e87-4755-aff6-2b5cd14c683c?runtime-version=exposdk%3A58.0.0&channel-name=production
-  ```
-
-This link always serves the latest update on the `production` channel. To ship a new version after changing the code, run:
-
-```bash
-npx eas-cli@latest update --branch production --message "describe the change"
 ```
+exps://solaris-explorer.vercel.app/expo-go
+```
+
+On iPhone, scan the QR code with the Camera app. On Android, scan it from inside Expo Go. Visitors who open https://solaris-explorer.vercel.app/expo-go in a browser get an "Open in Expo Go" button. This requires Expo Go for SDK 58.
+
+Why it's self-hosted: since May 2026, Expo Go only opens EAS Update projects for members of the owning Expo account. Expo Go still loads self-hosted updates with plain JS bundles. `npm run build:host` (used by Vercel, see `vercel.json`) exports the iOS and Android bundles, and `scripts/build-expo-go.mjs` writes the Expo Go manifests. Vercel serves the right manifest based on the `expo-platform` header. To ship a change, push and redeploy on Vercel.
+
+The EAS project `@snehaa006/solaris` (channel `production`) still exists for account members:
+`exp://u.expo.dev/cab71127-7e87-4755-aff6-2b5cd14c683c?runtime-version=exposdk%3A58.0.0&channel-name=production`
 
 ## Run it on your iPhone (Expo Go)
 
