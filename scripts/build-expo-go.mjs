@@ -127,7 +127,7 @@ for (const platform of ['ios', 'android']) {
 // Landing page for people who open the link in a browser.
 const deepLink = `exps://${host}/expo-go`;
 fs.writeFileSync(
-  path.join(outDir, 'index.html'),
+  path.join(outDir, 'open.html'),
   `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SOLARIS · Open in Expo Go</title>
 <style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#03040a;color:#fff;font:16px/1.5 -apple-system,system-ui,sans-serif}
