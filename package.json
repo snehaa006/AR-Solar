@@ -44,7 +44,8 @@
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
     "export": "expo export --platform ios --platform android",
-    "export:web": "expo export --platform web --output-dir dist-web"
+    "export:web": "expo export --platform web --output-dir dist-web",
+    "build:host": "expo export --platform web --output-dir dist-web && expo export --platform ios --platform android --no-bytecode --output-dir dist-native && node scripts/build-expo-go.mjs"
   },
   "private": true
 }

@@ -2,11 +2,46 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "npm ci",
-  "buildCommand": "npx expo export --platform web --output-dir dist-web",
+  "buildCommand": "npm run build:host",
   "outputDirectory": "dist-web",
+  "rewrites": [
+    {
+      "source": "/expo-go",
+      "has": [{ "type": "header", "key": "expo-platform", "value": "ios" }],
+      "destination": "/expo-go/ios.json"
+    },
+    {
+      "source": "/expo-go",
+      "has": [{ "type": "header", "key": "expo-platform", "value": "android" }],
+      "destination": "/expo-go/android.json"
+    },
+    { "source": "/expo-go", "destination": "/expo-go/index.html" }
+  ],
   "headers": [
     {
+      "source": "/expo-go/(ios|android).json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json" },
+        { "key": "expo-protocol-version", "value": "1" },
+        { "key": "expo-sfv-version", "value": "0" },
+        { "key": "Cache-Control", "value": "private, max-age=0, no-cache" }
+      ]
+    },
+    {
+      "source": "/expo-go",
+      "headers": [
+        { "key": "expo-protocol-version", "value": "1" },
+        { "key": "expo-sfv-version", "value": "0" },
+        { "key": "Cache-Control", "value": "private, max-age=0, no-cache" },
+        { "key": "Vary", "value": "expo-platform" }
+      ]
+    },
+    {
       "source": "/(assets|_expo)/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/expo-go/(assets|_expo)/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {

@@ -42,3 +42,4 @@ yarn-error.*
 
 # web export used for local verification
 dist-web/
+dist-native/
