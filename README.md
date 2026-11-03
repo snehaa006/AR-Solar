@@ -14,11 +14,21 @@ SOLARIS is a 3D and AR Solar System explorer built with **Expo (SDK 58)**, **Rea
 | **Discover** | Fact of the day plus a fact feed. Planet comparisons across 8 metrics with animated charts. A true-scale size lineup. A "your weight on other worlds" calculator. A randomized 8-question quiz with explanations and scoring. |
 | **Polish** | Cinematic loading screen with texture progress, frosted-glass UI, Space Grotesk + Inter typography, haptics, safe-area aware and mobile-first. |
 
-## Open it instantly (no computer needed)
+## Open it instantly
 
-SOLARIS is published with EAS Update (project `@snehaa006/solaris`, channel `production`, runtime `exposdk:58.0.0`). Anyone with **Expo Go** (SDK 58) can open it:
+### Public web app (anyone, no install)
 
-- **iPhone**: scan this QR code with the Camera app. **Android**: scan it from inside Expo Go.
+**https://solaris-explorer.vercel.app**
+
+It opens in Safari or Chrome on any phone, tablet or computer. It includes the 3D explorer, Discover and AR mode, which uses the camera and gyroscope in iPhone Safari. Tap **Start AR** and allow camera and motion access. Hosted on Vercel and built from this repo with `vercel.json`. Tip: in Safari use *Share → Add to Home Screen* to get an app-like icon.
+
+### Expo Go (members of the Expo account only)
+
+Expo Go only opens EAS Update projects for people signed in to an Expo account that is a member of the owner account (`snehaa006`). To give someone access, invite them on expo.dev (*Account → Members*). They then sign in to Expo Go with that account.
+
+SOLARIS is published with EAS Update (project `@snehaa006/solaris`, channel `production`, runtime `exposdk:58.0.0`). Members can open it in **Expo Go** (SDK 58):
+
+- Signed-in members: on **iPhone**, scan this QR code with the Camera app; on **Android**, scan it from inside Expo Go.
 
   <img src="docs/expo-go-qr.png" width="220" alt="QR code that opens SOLARIS in Expo Go" />
 
