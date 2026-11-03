@@ -28,7 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png",
-      "bundler": "metro"
+      "bundler": "metro",
+      "name": "SOLARIS \u00b7 Solar System Explorer",
+      "shortName": "SOLARIS",
+      "description": "Explore the Solar System in 3D and AR.",
+      "themeColor": "#03040a",
+      "backgroundColor": "#03040a"
     },
     "plugins": [
       "expo-asset",

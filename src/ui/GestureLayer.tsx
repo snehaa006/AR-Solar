@@ -107,17 +107,28 @@ export function GestureLayer({ style, ...handlers }: GestureHandlers & { style?:
     [],
   );
 
-  // Mouse-wheel zoom for the web build.
+  // Web: mouse-wheel zoom, and stop mobile browsers (iOS Safari) from
+  // treating drags/pinches on the 3D view as page scroll or page zoom.
   useEffect(() => {
     if (Platform.OS !== 'web') return;
     const node = viewRef.current as unknown as HTMLElement | null;
     if (!node || !node.addEventListener) return;
+    node.style.touchAction = 'none';
     const onWheel = (ev: WheelEvent) => {
       ev.preventDefault();
       h.current.onWheel?.(ev.deltaY);
     };
+    const block = (ev: Event) => ev.preventDefault();
     node.addEventListener('wheel', onWheel, { passive: false });
-    return () => node.removeEventListener('wheel', onWheel);
+    node.addEventListener('touchmove', block, { passive: false });
+    node.addEventListener('gesturestart', block);
+    node.addEventListener('gesturechange', block);
+    return () => {
+      node.removeEventListener('wheel', onWheel);
+      node.removeEventListener('touchmove', block);
+      node.removeEventListener('gesturestart', block);
+      node.removeEventListener('gesturechange', block);
+    };
   }, []);
 
   return <View ref={viewRef} style={style} {...responder.panHandlers} />;
