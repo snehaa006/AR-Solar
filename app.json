@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "SOLARIS",
+    "slug": "solaris",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#03040a",
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "SOLARIS uses the camera to place the Solar System in your surroundings (AR mode).",
+        "NSMotionUsageDescription": "SOLARIS uses motion sensors so the AR Solar System stays anchored as you move your phone."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#03040a",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "android.permission.CAMERA"
+      ],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-font",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "SOLARIS uses the camera to place the Solar System in your surroundings (AR mode).",
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "SOLARIS uses motion sensors so the AR Solar System stays anchored as you move your phone."
+        }
+      ]
+    ]
+  }
+}
